@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 #Random number
 get("/random/:lower/:upper", { :controller => 'calculations', :action => 'random' })
 
+
+#Payment
+get("/payment/:interestrate/:years/:loanamount", { :controller => 'calculations', :action => 'payment' })
+
 end

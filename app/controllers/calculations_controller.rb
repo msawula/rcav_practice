@@ -23,6 +23,21 @@ def random
 render("show_random.html.erb")
 end
 
+def payment
+
+@term = params[:years]
+@amount = params[:loanamount]
+@intrate = ((params[:interestrate]).to_f)/100
+
+@numerator = @amount.to_i * (((params[:interestrate]).to_f)/120000)
+
+@denominator = 1- ((1 + (params[:interestrate].to_f/120000)) ** (@term.to_i * 12 * -1))
+
+@monthlypayment =@numerator.to_f / @denominator.to_f
+
+render("show_payment.html.erb")
+
+end
 
 
 end
